@@ -1,9 +1,9 @@
 import ResumeView from "./resume-view";
 
 export const metadata = {
-  title: "Résumé | Naresh Khatri",
+  title: "Résumé | Ajay Tandale",
   description:
-    "Résumé of Naresh Khatri — Senior Full-Stack Engineer. View online or download the PDF.",
+    "Official résumé of Ajay Tandale — Cloud Engineer, Linux System Administrator (RHCSA), and Computer Science Engineering student.",
 };
 
 export default function ResumePage() {

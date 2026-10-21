@@ -7,8 +7,7 @@ import { Download, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ResumeDoodle from "./resume-doodle";
 
-// Drop the compiled PDF here: frontend/public/Naresh_Khatri_Resume.pdf
-const RESUME_PATH = "/Naresh_Khatri_Resume.pdf";
+const RESUME_PATH = "/Ajay_Tandale_Resume.pdf";
 
 export default function ResumeView() {
   return (
@@ -36,22 +35,21 @@ export default function ResumeView() {
             <ArrowLeft className="h-4 w-4" />
             Back to portfolio
           </Link>
-          <Button>
-            <a
-              href={RESUME_PATH}
-              download
-              className="flex gap-2 text-sm transition-colors hover:text-foreground"
-            >
+          <a
+            href={RESUME_PATH}
+            download="Ajay_Tandale_Resume.pdf"
+            className="inline-block"
+          >
+            <Button className="flex items-center gap-2 text-sm font-medium">
               <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               Download PDF
-            </a>
-          </Button>
+            </Button>
+          </a>
         </motion.div>
       </div>
 
-      {/* PDF viewer — centered on mobile (short A4 card), top-aligned on desktop (tall) */}
+      {/* PDF viewer */}
       <div className="mx-auto flex w-full max-w-4xl flex-1 items-center justify-center px-2 pb-6 md:items-start md:px-4 md:pb-24">
-        {/* opacity-only animation: a transformed ancestor would trap the fixed doodle FAB */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -60,7 +58,7 @@ export default function ResumeView() {
         >
           <ResumeDoodle
             src={`${RESUME_PATH}#toolbar=0&navpanes=0&view=FitH`}
-            title="Naresh Khatri — Résumé"
+            title="Ajay Tandale — Résumé"
           />
         </motion.div>
       </div>

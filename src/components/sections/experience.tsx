@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const ExperienceSection = () => {
   return (
     <SectionWrapper
+      id="about"
       className="flex flex-col items-center justify-center min-h-[120vh] py-20"
     >
       <div className="w-full max-w-4xl px-4 md:px-8 mx-auto">
@@ -20,7 +21,7 @@ const ExperienceSection = () => {
         />
 
         <div className="flex flex-col gap-8 md:gap-12 relative">
-          {/* Connector Line - simplified to a subtle border */}
+          {/* Connector Line - subtle border */}
           <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-px bg-border hidden md:block -translate-x-1/2" />
 
           {EXPERIENCE.map((exp, index) => (
@@ -84,12 +85,14 @@ const ExperienceCard = ({
           <div className="flex flex-wrap gap-2">
             {experience.skills.map((skillName) => {
               const skill = SKILLS[skillName as SkillNames];
+              if (!skill) return null;
               return (
                 <Badge
                   key={skillName}
                   variant="outline"
                   className="gap-2 text-xs font-normal bg-secondary/30 hover:bg-secondary/50 transition-colors border-transparent"
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={skill.icon}
                     alt={skill.label}

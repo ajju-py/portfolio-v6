@@ -105,7 +105,7 @@ export default function FunnyThemeToggle({
           <PopoverContent className="z-[99999] flex flex-col items-center gap-2">
             {/* <p className="text-sm">these stunts are done by professional only</p> */}
             <p className="text-sm text-center">
-              {themeDisclaimers.light[counter.light]}
+              {themeDisclaimers.light[counter.light % themeDisclaimers.light.length]}
             </p>
             <Button onClick={goLight}>Go Light</Button>
           </PopoverContent>

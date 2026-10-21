@@ -2,13 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   cacheComponents: true,
+  turbopack: {
+    root: process.cwd(),
+  },
+  experimental: {
+    cpus: 2,
+  },
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          // SAMEORIGIN (not DENY) so the resume page can embed its own PDF;
-          // still blocks other sites from framing us (clickjacking protection).
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -19,12 +23,6 @@ const nextConfig = {
         source: "/assets/(.*)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
-        ],
-      },
-      {
-        source: "/_next/static/(.*)",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];
